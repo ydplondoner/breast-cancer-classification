@@ -68,7 +68,7 @@ The best performing parameters below were used:
 
 Performance for SVM, Naive Bayes and Logistic Regression were compared. SVM achievd the highest accuracy, precision, recall and F1 scores. 
 
-![image](assets/cm_svm.png)
+![image](assets/cm_SVM.png)
 
 * Accuracy: 0.97
 * Precision: 0.98
