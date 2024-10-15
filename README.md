@@ -49,7 +49,7 @@ Three models were evaluated for the problem:
 
 * Logistic Regression
   + Easy to explain and interpret, which is important for medical diagnosis.
-  + Easy to measured which input variables are the most significant, for example with Z-statistics.
+  + Easy to measure which input variables are the most significant, for example with Z-statistics.
   + The outcome is a positive / negative binary classification which is also desirable here.
   + Not so good for capturing more complex relationships, limited to linear separation.
 
