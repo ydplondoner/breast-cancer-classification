@@ -1,5 +1,16 @@
 # Breast Cancer Diagnosis Using Tissue Sample Data 
 
+## Repository Contents
+##### Datasheet 
+  * [Datasheet](Datasheet.md)
+##### Model Card (for SVM Only) 
+  * [SVM Model Card](ModelCardSVM.md)
+##### Jupyter Notebooks
+  * [SVM Notebook](ModelSVM.ipynb)
+  * [Logisitic Regression Notebook](ModelLogisticRegression.ipynb)
+  * [Naive Bayes Notebook](ModelNaiveBayes.ipynb)
+
+
 ## Motivation
 This is a capstone project for the Imperial College AI/ML Professional Certification. It will evaluate several machine learning techniques to make a binary classification prediction for a cancer diagnosis.
 
