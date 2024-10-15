@@ -21,17 +21,17 @@ Initially, a more complex problem was explored - to use Convolutional Neural Net
 Breast tissue numerical data was used due to it's relatively small size.  It can be run on a laptop, without specialised GPUs or large amounts of compute power.  
 
 ## Data
-The models would be trained and tested on the Breast Cancer Wisconsin (Diagnostic) Dataset, available from [https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic]( https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic ) .  See the Datasheet.md for further details.  The input sample file for the project is [breast-cancer.csv](breast-cancer.csv 'breast-cancer.csv')
-
-For more details about pre-processing and collection steps for the data see [Datasheet.md](Datasheet.md)
+The models would be trained and tested on the Breast Cancer Wisconsin (Diagnostic) Dataset, available from [https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic]( https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic ).  The input sample file for the project is [breast-cancer.csv](breast-cancer.csv 'breast-cancer.csv')
 
 The dataset consists of 30 features.  The Diagnosis target column is a binary classification that can be used to train and test the models.
+
+For more details about pre-processing and collection steps for the data see [Datasheet.md](Datasheet.md)
 
 It is important to note that the data was not balanced across the target classifications.  
 
 ![image](assets/data_balance.png)
 
-SMOTE (Synthetic Minority Oversampling Technique) from imblearn.over_sampling.SMOTE library (https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html) was used to balance training data equally between benign and malignant.  SMOTE works by generating new samples using interpolation.
+SMOTE (Synthetic Minority Oversampling Technique) from the Python library imblearn.over_sampling.SMOTE (https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html) was used to balance training data equally between benign and malignant.  SMOTE works by generating new samples using interpolation.
 
 By balancing the data, we can reduce bias towards the majority classification (benign in this case) during training.
  
@@ -46,18 +46,23 @@ Three models were evaluated for the problem:
   + Through the use of a regularisation hyper-parameter C, it can avoid overfitting to training data.
   + Can be computationally expensive.
  
+
 * Logistic Regression
   + Easy to explain and interpret, which is important for medical diagnosis.
   + Easy to measured which input variables are the most significant, for example with Z-statistics.
   + The outcome is a positive / negative binary classification which is also desirable here.
   + Not so good for capturing more complex relationships, limited to linear separation.
 
+
 * Naive Bayes
   + Simple model based on probability calculations.  Works well with numerical data such as the breast tissue sample data for this project, removing the need for converting categorical data.
   + Little scope for hyperparameter optimisation.
 
-A model card has been created for the best performing model, SVM [ModelCardSVM](ModelCardSVM.md)
-All three Jupyter Notebooks are in this repository, with file extension .ipynb.
+A model card has been created for the best performing model, SVM: [SVM Model Card](ModelCardSVM.md).
+
+
+All three Jupyter Notebooks can be found in this repository, with file extension .ipynb.
+
 
 ## Hyperparameter Optimisation
 
@@ -123,5 +128,12 @@ Performance for SVM, Naive Bayes and Logistic Regression were compared. SVM achi
 * Precision: 0.98
 * Recall: 0.88
 
-Support Vector Machines (Support Vector Classifier specifically) performed the best for this problem for all metrics: accuracy (% of overall correct classifications), precision (% of positive classifications that are actually positive) and recall (proportion of actual positives that are correctly classified). 
-It is particularly important for a high recall value for disease classification, to reduce the chance of missing positive classifications. In this respect, Naive Bayes would be less suitable for this problem, with only 88% recall compared to 94% for SVM with optimised hyperparameters.
+
+### Conclusion
+Support Vector Machines (Support Vector Classifier specifically) performed the best for this problem for all metrics: accuracy (% of overall correct classifications), precision (% of positive classifications that are actually positive) and recall (proportion of actual positives that are correctly classified).
+
+It is particularly important to have a high recall value for disease classification, to reduce the chance of missing positive classifications.
+
+In this respect, Naive Bayes would be less suitable for this problem, with only 88% recall compared to 94% for SVM with optimised hyperparameters.
+
+One caveat of using Support Vector Machines would be that for larger datasets (both number of features and number of training samples), the computational needs would be much higher than it would be for Logisitic Regression or Naive Bayes.
